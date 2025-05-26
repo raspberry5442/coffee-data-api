@@ -1,5 +1,7 @@
 from flask import Blueprint, request, jsonify
 import sqlite3
+from auth import auth_required
+
 
 api = Blueprint('api', __name__)
 DB_PATH = 'db/coffee.db'
@@ -8,6 +10,7 @@ def get_connection():
     return sqlite3.connect(DB_PATH)
 
 @api.route('/coffee_server/get_data', methods=['GET'])
+@auth_required
 def get_data():
     query = request.args.get('query')
     if not query:
@@ -28,6 +31,7 @@ def get_data():
     
 
 @api.route('/coffee_server/get_meta/', methods=['GET'])
+@auth_required
 def get_meta():
     conn = get_connection()
     cursor = conn.cursor()
