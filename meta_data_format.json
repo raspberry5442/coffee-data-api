@@ -1,0 +1,189 @@
+{
+    "meta": [
+        {
+            "table_name": "customers",
+            "columns": [
+                {
+                    "name": "id",
+                    "format": "INTEGER",
+                    "is_null": false,
+                    "default": null,
+                    "primary_key": true,
+                    "comment": "会员ID"
+                },
+                {
+                    "name": "name",
+                    "format": "VARCHAR",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "会员姓名"
+                },
+                {
+                    "name": "membership",
+                    "format": "VARCHAR(7)",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "会员等级（NONE=非会员/REGULAR=普通会员/PREMIUM=高级会员）"
+                }
+            ]
+        },
+        {
+            "table_name": "staff",
+            "columns": [
+                {
+                    "name": "id",
+                    "format": "INTEGER",
+                    "is_null": false,
+                    "default": null,
+                    "primary_key": true,
+                    "comment": "员工ID"
+                },
+                {
+                    "name": "name",
+                    "format": "VARCHAR",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "员工姓名"
+                }
+            ]
+        },
+        {
+            "table_name": "coffee_types",
+            "columns": [
+                {
+                    "name": "id",
+                    "format": "INTEGER",
+                    "is_null": false,
+                    "default": null,
+                    "primary_key": true,
+                    "comment": "咖啡类型ID"
+                },
+                {
+                    "name": "name",
+                    "format": "VARCHAR",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "咖啡名称"
+                },
+                {
+                    "name": "base_price",
+                    "format": "FLOAT",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "基础价格"
+                },
+                {
+                    "name": "temp",
+                    "format": "VARCHAR(4)",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "温度类型（HOT=热饮/COLD=冷饮）"
+                }
+            ]
+        },
+        {
+            "table_name": "orders",
+            "columns": [
+                {
+                    "name": "id",
+                    "format": "INTEGER",
+                    "is_null": false,
+                    "default": null,
+                    "primary_key": true,
+                    "comment": "订单ID"
+                },
+                {
+                    "name": "timestamp",
+                    "format": "DATETIME",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "下单时间"
+                },
+                {
+                    "name": "customer_id",
+                    "format": "INTEGER",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "关联的会员ID（可能为空）"
+                },
+                {
+                    "name": "source",
+                    "format": "VARCHAR(8)",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "订单来源（IN_STORE=进店，ONLINE=线上）"
+                },
+                {
+                    "name": "total_price",
+                    "format": "FLOAT",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "订单总金额（已考虑会员折扣）"
+                }
+            ]
+        },
+        {
+            "table_name": "order_items",
+            "columns": [
+                {
+                    "name": "id",
+                    "format": "INTEGER",
+                    "is_null": false,
+                    "default": null,
+                    "primary_key": true,
+                    "comment": "记录ID"
+                },
+                {
+                    "name": "order_id",
+                    "format": "INTEGER",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "所属订单ID"
+                },
+                {
+                    "name": "coffee_type_id",
+                    "format": "INTEGER",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "咖啡类型ID"
+                },
+                {
+                    "name": "staff_id",
+                    "format": "INTEGER",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "制作员工ID"
+                },
+                {
+                    "name": "quantity",
+                    "format": "INTEGER",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "咖啡数量"
+                },
+                {
+                    "name": "unit_price",
+                    "format": "FLOAT",
+                    "is_null": true,
+                    "default": null,
+                    "primary_key": false,
+                    "comment": "咖啡单价（未考虑折扣）"
+                }
+            ]
+        }
+    ]
+}
