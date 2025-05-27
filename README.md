@@ -9,7 +9,7 @@
 * 使用 SQLite 实现关系型数据库
 * 提供`GET /coffee_server/get_data` 接口，支持通过 SQL 查询语句灵活读取任意表数据
 * 提供结构化的 `GET /coffee_server/get_meta/` 接口，返回包含字段类型、主键、是否可为空、字段注释等完整元信息
-* 支持通过 API Key 的方式调用（还未集成认证机制）
+* 通过 API Key 的方式调用，鉴权认证
 
 项目适合需要：
 
