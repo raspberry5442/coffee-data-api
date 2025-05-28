@@ -20,11 +20,9 @@ def get_data():
         conn = get_connection()
         cursor = conn.cursor()
         cursor.execute(query)
-        columns = [col[0] for col in cursor.description]
         rows = cursor.fetchall()
-        data = [dict(zip(columns, row)) for row in rows]
         conn.close()
-        return jsonify({"data": data})
+        return jsonify({"data": rows})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
